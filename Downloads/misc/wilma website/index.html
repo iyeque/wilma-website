@@ -1,0 +1,1384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wilma Wigman — Digital Wellness Strategist & Founder</title>
+  <meta name="description" content="Wilma Wigman helps parents raise emotionally intelligent, tech-aware kids. Founder of Digital Guardian Wellness. Speaker, consultant, and advocate based in Dubai.">
+  <meta property="og:title" content="Wilma Wigman — Digital Wellness Strategist">
+  <meta property="og:description" content="Helping parents raise tech-aware kids without the guilt. Founder of Digital Guardian Wellness.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #F7F3EE;
+      --cream-dark: #EDE8E1;
+      --charcoal: #2A2522;
+      --warm-gray: #6B6560;
+      --stone: #D9D3CC;
+      --terracotta: #C4704B;
+      --terracotta-dark: #A85D3D;
+      --sage: #5A7D5A;
+      --sage-light: rgba(90, 125, 90, 0.12);
+      --terracotta-light: rgba(196, 112, 75, 0.10);
+      --white: #FFFFFF;
+      --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --shadow-sm: 0 1px 2px rgba(42, 37, 34, 0.04);
+      --shadow-md: 0 4px 16px rgba(42, 37, 34, 0.08);
+      --shadow-lg: 0 8px 32px rgba(42, 37, 34, 0.12);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --cream: #1A1715;
+        --cream-dark: #25211E;
+        --charcoal: #F0EBE5;
+        --warm-gray: #A8A29E;
+        --stone: #3D3834;
+        --white: #25211E;
+        --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
+        --shadow-md: 0 4px 16px rgba(0,0,0,0.3);
+        --shadow-lg: 0 8px 32px rgba(0,0,0,0.4);
+      }
+      .nav { background: rgba(26, 23, 21, 0.92) !important; border-bottom-color: var(--stone) !important; }
+      .stats-section, .footer { background: #0F0D0C !important; }
+      .mobile-menu { background: var(--cream) !important; }
+      img { opacity: 0.92; }
+    }
+
+    body.dark-mode {
+      --cream: #1A1715;
+      --cream-dark: #25211E;
+      --charcoal: #F0EBE5;
+      --warm-gray: #A8A29E;
+      --stone: #3D3834;
+      --white: #25211E;
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
+      --shadow-md: 0 4px 16px rgba(0,0,0,0.3);
+      --shadow-lg: 0 8px 32px rgba(0,0,0,0.4);
+    }
+    body.dark-mode .nav { background: rgba(26, 23, 21, 0.92); border-bottom-color: var(--stone); }
+    body.dark-mode .stats-section, body.dark-mode .footer { background: #0F0D0C; }
+    body.dark-mode .mobile-menu { background: var(--cream); }
+    body.dark-mode img { opacity: 0.92; }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font);
+      color: var(--charcoal);
+      background: var(--cream);
+      line-height: 1.6;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: rgba(247, 243, 238, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--stone);
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+    .nav-brand {
+      font-size: 17px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--charcoal);
+    }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+    .nav-link {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--warm-gray);
+      transition: color 0.2s ease;
+      position: relative;
+    }
+    .nav-link:hover { color: var(--charcoal); }
+    .nav-link.active { color: var(--terracotta); }
+    .nav-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--terracotta);
+      border-radius: 1px;
+    }
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 16px;
+      background: var(--terracotta);
+      color: var(--white);
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 500;
+      transition: background 0.2s ease;
+    }
+    .nav-cta:hover { background: var(--terracotta-dark); }
+    .theme-toggle {
+      background: none;
+      border: 1px solid var(--stone);
+      border-radius: 8px;
+      padding: 6px 10px;
+      cursor: pointer;
+      color: var(--warm-gray);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+    }
+    .theme-toggle:hover {
+      border-color: var(--terracotta);
+      color: var(--terracotta);
+    }
+    .theme-toggle svg { width: 18px; height: 18px; }
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      color: var(--charcoal);
+    }
+    .mobile-menu-btn svg { width: 24px; height: 24px; }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .hero {
+      padding: 140px 0 80px;
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .hero-content h1 {
+      font-size: clamp(36px, 5vw, 52px);
+      font-weight: 600;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      color: var(--charcoal);
+      margin-bottom: 24px;
+    }
+    .hero-content h1 em {
+      font-style: normal;
+      color: var(--terracotta);
+    }
+    .hero-content p {
+      font-size: 18px;
+      line-height: 1.6;
+      color: var(--warm-gray);
+      max-width: 480px;
+      margin-bottom: 32px;
+    }
+    .hero-ctas {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      border: 1.5px solid transparent;
+      font-family: var(--font);
+    }
+    .btn-primary {
+      background: var(--terracotta);
+      color: var(--white);
+      border-color: var(--terracotta);
+    }
+    .btn-primary:hover {
+      background: var(--terracotta-dark);
+      border-color: var(--terracotta-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px rgba(196, 112, 75, 0.25);
+    }
+    .btn-secondary {
+      background: transparent;
+      color: var(--charcoal);
+      border-color: var(--stone);
+    }
+    .btn-secondary:hover {
+      background: var(--cream-dark);
+      border-color: var(--warm-gray);
+    }
+    .hero-image {
+      position: relative;
+    }
+    .hero-image img {
+      width: 100%;
+      max-width: 440px;
+      border-radius: 16px;
+      object-fit: cover;
+      aspect-ratio: 3/4;
+      margin-left: auto;
+    }
+    .hero-image::before {
+      content: '';
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      right: -20px;
+      bottom: -20px;
+      border: 2px solid var(--terracotta);
+      border-radius: 16px;
+      z-index: -1;
+      opacity: 0.3;
+    }
+
+    .section { padding: 100px 0; }
+    .section-header {
+      max-width: 640px;
+      margin-bottom: 56px;
+    }
+    .section-label {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--terracotta);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: clamp(28px, 3.5vw, 40px);
+      font-weight: 600;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: var(--charcoal);
+      margin-bottom: 16px;
+    }
+    .section-subtitle {
+      font-size: 17px;
+      line-height: 1.6;
+      color: var(--warm-gray);
+    }
+    .accent-line {
+      width: 48px;
+      height: 3px;
+      background: var(--terracotta);
+      border-radius: 2px;
+      margin-bottom: 20px;
+    }
+
+    .problem-section {
+      background: var(--white);
+      border-top: 1px solid var(--stone);
+      border-bottom: 1px solid var(--stone);
+    }
+    .problem-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .problem-text p {
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--warm-gray);
+      margin-bottom: 20px;
+    }
+    .problem-text strong {
+      color: var(--charcoal);
+      font-weight: 600;
+    }
+    .problem-highlight {
+      padding: 24px;
+      background: var(--terracotta-light);
+      border: 1px solid rgba(196, 112, 75, 0.2);
+      border-radius: 12px;
+      margin-top: 24px;
+    }
+    .problem-highlight p {
+      margin: 0;
+      font-size: 15px;
+      color: var(--charcoal);
+      line-height: 1.6;
+    }
+    .problem-image img {
+      width: 100%;
+      border-radius: 12px;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+    }
+
+    .newsletter-section {
+      background: var(--terracotta);
+      color: var(--white);
+      padding: 80px 0;
+      text-align: center;
+    }
+    .newsletter-section .section-title { color: var(--white); }
+    .newsletter-section .section-subtitle {
+      color: rgba(255,255,255,0.8);
+      max-width: 520px;
+      margin: 0 auto 32px;
+    }
+    .newsletter-form {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+    .newsletter-form input {
+      flex: 1;
+      min-width: 260px;
+      padding: 14px 18px;
+      border-radius: 10px;
+      border: 1.5px solid rgba(255,255,255,0.3);
+      background: rgba(255,255,255,0.12);
+      color: var(--white);
+      font-size: 15px;
+      font-family: var(--font);
+      transition: all 0.2s ease;
+    }
+    .newsletter-form input::placeholder { color: rgba(255,255,255,0.6); }
+    .newsletter-form input:focus {
+      outline: none;
+      border-color: var(--white);
+      background: rgba(255,255,255,0.2);
+    }
+    .newsletter-form .btn {
+      background: var(--white);
+      color: var(--terracotta);
+      border-color: var(--white);
+      font-weight: 600;
+    }
+    .newsletter-form .btn:hover {
+      background: var(--cream);
+      border-color: var(--cream);
+      transform: translateY(-1px);
+    }
+    .newsletter-disclaimer {
+      font-size: 12px;
+      color: rgba(255,255,255,0.6);
+      margin-top: 16px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    .service-card {
+      padding: 28px;
+      background: var(--white);
+      border: 1px solid var(--stone);
+      border-radius: 12px;
+      transition: all 0.3s ease;
+    }
+    .service-card:hover {
+      border-color: var(--terracotta);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+    }
+    .service-card h3 {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 10px;
+    }
+    .service-card p {
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--warm-gray);
+      margin-bottom: 16px;
+    }
+    .service-tag {
+      display: inline-block;
+      padding: 4px 12px;
+      background: var(--sage-light);
+      color: var(--sage);
+      font-size: 12px;
+      font-weight: 600;
+      border-radius: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .stats-section {
+      background: var(--charcoal);
+      color: var(--white);
+      padding: 80px 0;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      text-align: center;
+    }
+    .stat-item .stat-num {
+      font-size: 48px;
+      font-weight: 600;
+      color: var(--terracotta);
+      line-height: 1;
+      margin-bottom: 8px;
+      font-variant-numeric: tabular-nums;
+    }
+    .stat-item .stat-label {
+      font-size: 14px;
+      color: rgba(255,255,255,0.6);
+      font-weight: 500;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .about-image {
+      position: sticky;
+      top: 100px;
+    }
+    .about-image img {
+      width: 100%;
+      border-radius: 12px;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+    }
+    .about-content h3 {
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 20px;
+      line-height: 1.3;
+    }
+    .about-content p {
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--warm-gray);
+      margin-bottom: 20px;
+    }
+    .about-content strong {
+      color: var(--charcoal);
+      font-weight: 600;
+    }
+    .beliefs-list {
+      margin: 32px 0;
+      padding: 0;
+      list-style: none;
+    }
+    .beliefs-list li {
+      padding: 14px 0;
+      border-bottom: 1px solid var(--stone);
+      font-size: 16px;
+      color: var(--warm-gray);
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .beliefs-list li::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--terracotta);
+      border-radius: 50%;
+      margin-top: 8px;
+      flex-shrink: 0;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    .project-card {
+      background: var(--white);
+      border: 1px solid var(--stone);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    .project-card:hover {
+      border-color: var(--terracotta);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+    .project-image {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: var(--cream-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .project-image-placeholder {
+      font-size: 14px;
+      color: var(--warm-gray);
+      text-align: center;
+      padding: 20px;
+    }
+    .project-body {
+      padding: 24px;
+    }
+    .project-body h3 {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 8px;
+    }
+    .project-body p {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--warm-gray);
+      margin-bottom: 16px;
+    }
+    .project-link {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--terracotta);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap 0.2s ease;
+    }
+    .project-link:hover { gap: 10px; }
+
+    .testimonial-section {
+      background: var(--white);
+      border-top: 1px solid var(--stone);
+      border-bottom: 1px solid var(--stone);
+    }
+    .testimonial {
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .testimonial-quote {
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1.5;
+      color: var(--charcoal);
+      font-style: italic;
+      margin-bottom: 24px;
+    }
+    .testimonial-author {
+      font-size: 15px;
+      color: var(--warm-gray);
+      font-weight: 500;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+    .contact-info h3 {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 8px;
+    }
+    .contact-info p {
+      font-size: 15px;
+      color: var(--warm-gray);
+      margin-bottom: 32px;
+    }
+    .contact-methods {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .contact-method {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 20px;
+      background: var(--white);
+      border: 1px solid var(--stone);
+      border-radius: 10px;
+      transition: all 0.2s ease;
+    }
+    .contact-method:hover {
+      border-color: var(--terracotta);
+    }
+    .contact-method-text h4 {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 2px;
+    }
+    .contact-method-text p {
+      font-size: 13px;
+      color: var(--warm-gray);
+      margin: 0;
+    }
+    .contact-method .btn-small {
+      padding: 8px 16px;
+      font-size: 13px;
+      border-radius: 8px;
+      font-weight: 500;
+      cursor: pointer;
+      font-family: var(--font);
+      transition: all 0.2s ease;
+      border: 1.5px solid var(--stone);
+      background: transparent;
+      color: var(--charcoal);
+    }
+    .contact-method .btn-small:hover {
+      background: var(--cream-dark);
+      border-color: var(--warm-gray);
+    }
+    .google-form-card {
+      background: var(--white);
+      border: 1px solid var(--stone);
+      border-radius: 12px;
+      padding: 32px;
+      text-align: center;
+    }
+    .google-form-card h3 {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 10px;
+    }
+    .google-form-card p {
+      font-size: 15px;
+      color: var(--warm-gray);
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+    .google-form-card .btn-primary {
+      display: inline-flex;
+      justify-content: center;
+    }
+    .social-links {
+      display: flex;
+      gap: 12px;
+      margin-top: 32px;
+      flex-wrap: wrap;
+    }
+    .social-link {
+      padding: 8px 16px;
+      background: var(--cream-dark);
+      border: 1px solid var(--stone);
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--warm-gray);
+      transition: all 0.2s ease;
+    }
+    .social-link:hover {
+      background: var(--white);
+      border-color: var(--terracotta);
+      color: var(--terracotta);
+    }
+
+    .privacy-section {
+      background: var(--white);
+      border-top: 1px solid var(--stone);
+    }
+    .privacy-content {
+      max-width: 720px;
+    }
+    .privacy-content h3 {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin: 32px 0 12px;
+    }
+    .privacy-content h3:first-child { margin-top: 0; }
+    .privacy-content p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--warm-gray);
+      margin-bottom: 14px;
+    }
+    .privacy-content ul {
+      margin: 12px 0 12px 20px;
+      color: var(--warm-gray);
+    }
+    .privacy-content ul li {
+      font-size: 15px;
+      line-height: 1.7;
+      margin-bottom: 6px;
+    }
+    .privacy-content a {
+      color: var(--terracotta);
+      text-decoration: underline;
+    }
+    .privacy-date {
+      font-size: 13px;
+      color: var(--warm-gray);
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid var(--stone);
+    }
+
+    .footer {
+      background: var(--charcoal);
+      color: var(--white);
+      padding: 60px 0 32px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+    .footer-brand {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    .footer-desc {
+      font-size: 14px;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.5);
+      max-width: 280px;
+    }
+    .footer-col h4 {
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 16px;
+    }
+    .footer-col a {
+      display: block;
+      font-size: 14px;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 10px;
+      transition: color 0.2s ease;
+    }
+    .footer-col a:hover { color: var(--terracotta); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-bottom p {
+      font-size: 12px;
+      color: rgba(255,255,255,0.4);
+    }
+    .footer-crisis {
+      font-size: 12px;
+      color: rgba(255,255,255,0.4);
+    }
+    .footer-crisis strong { color: rgba(255,255,255,0.6); }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 64px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: var(--cream);
+      z-index: 999;
+      padding: 32px 24px;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--charcoal);
+      padding: 8px 0;
+      border-bottom: 1px solid var(--stone);
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid, .problem-grid, .about-grid, .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .hero {
+        padding: 120px 0 60px;
+        min-height: auto;
+      }
+      .hero-image { order: -1; }
+      .hero-image img { max-width: 320px; margin: 0 auto; }
+      .about-image { position: static; }
+      .about-image img { max-width: 320px; margin: 0 auto; }
+      .services-grid, .projects-grid { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .section { padding: 64px 0; }
+      .newsletter-form {
+        flex-direction: column;
+        align-items: center;
+      }
+      .newsletter-form input {
+        width: 100%;
+        min-width: unset;
+      }
+    }
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .mobile-menu-btn { display: block; }
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+      .stat-item .stat-num { font-size: 36px; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .hero-content h1 { font-size: 32px; }
+      .testimonial-quote { font-size: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-brand">Wilma Wigman</a>
+      <div class="nav-links">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#work" class="nav-link">Work</a>
+        <a href="#contact" class="nav-link">Contact</a>
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" title="Toggle dark mode">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        </button>
+        <a href="#contact" class="nav-cta">Work with me</a>
+      </div>
+      <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about" onclick="toggleMenu()">About</a>
+    <a href="#services" onclick="toggleMenu()">Services</a>
+    <a href="#work" onclick="toggleMenu()">Work</a>
+    <a href="#contact" onclick="toggleMenu()">Contact</a>
+    <a href="#contact" class="btn btn-primary" style="margin-top:16px;text-align:center" onclick="toggleMenu()">Work with me</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <h1>I help parents raise <em>tech-aware</em> kids—without the guilt, the battles, or pretending the internet doesn't exist.</h1>
+          <p>Digital wellness strategist, founder of Digital Guardian, and speaker on the future of family life in a connected world. Based in Dubai, working with parents and schools across the Middle East and Africa.</p>
+          <div class="hero-ctas">
+            <a href="#work" class="btn btn-primary">Explore my work</a>
+            <a href="#services" class="btn btn-secondary">Work with me</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img src="assets/hero-wilma.jpg" alt="Wilma Wigman — Digital Wellness Strategist">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section class="problem-section section">
+    <div class="container">
+      <div class="problem-grid">
+        <div class="problem-text">
+          <div class="accent-line"></div>
+          <h2 class="section-title">The problem</h2>
+          <p>You don't need another app. You don't need a "screen time contract" printed from Pinterest.</p>
+          <p>What you need is someone who understands <strong>how media is engineered to hook your child</strong>—and how to build the emotional intelligence and boundaries that no parental control software can install.</p>
+          <p>I know this because I've been on both sides of the screen.</p>
+          <div class="problem-highlight">
+            <p><strong>My unique edge:</strong> I understand how media is engineered to capture attention—because I used to evaluate it professionally. Now I help families resist it.</p>
+          </div>
+        </div>
+        <div class="problem-image">
+          <img src="assets/wilma-workshop.jpg" alt="Wilma speaking at a panel discussion">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats-section">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-num">50+</div>
+          <div class="stat-label">Families supported</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">1,000+</div>
+          <div class="stat-label">Wellness resources</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">15+</div>
+          <div class="stat-label">Expert contributors</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">95%</div>
+          <div class="stat-label">Parents report success</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-header">
+        <div class="accent-line"></div>
+        <h2 class="section-title">My story</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-image">
+          <img src="assets/wilma-portrait.jpg" alt="Wilma Wigman portrait">
+        </div>
+        <div class="about-content">
+          <p>I didn't set out to become a "digital wellness expert."</p>
+          <p>I set out to understand why my toddler was crying when I took the iPad away. And why I felt guilty every time I handed it to her in the first place. And why every parenting book seemed to offer the same advice: <em>"Just limit screen time."</em></p>
+          <p>As if it were that simple.</p>
+          <p>Before Digital Guardian, I built a career evaluating the quality of media creative—analyzing how content is designed, structured, and optimized to capture human attention. I understood the psychology of persuasion. I knew what a "dark pattern" looked like before it had a name.</p>
+          <p>Then I became a parent. And I watched those same techniques—the infinite scroll, the variable rewards, the autoplay—target my child.</p>
+          <p>I realized that most parents are fighting this battle with one hand tied behind their backs. We're told to fear technology, but not how it works. We're shamed for our kids' screen time, but not given tools that actually fit real family life.</p>
+          <p>So I built what I wished I'd had: <strong>a resource hub that treats parents like intelligent adults and children like whole humans.</strong></p>
+
+          <h3>What I believe</h3>
+          <p><strong>Technology is not the enemy. Disconnection is.</strong></p>
+          <p>I'm not here to help you eliminate screens. I'm here to help you eliminate the <em>anxiety</em> around them—by building the kind of relationship with your kids where you can talk about what they see online, set boundaries that stick, and model the digital habits you want them to inherit.</p>
+
+          <ul class="beliefs-list">
+            <li>Research-backed strategies from the American Academy of Pediatrics and University of Michigan</li>
+            <li>Real-world tools tested in my own home, not theory from a textbook</li>
+            <li>Empathetic storytelling that meets parents where they are</li>
+            <li>A bridge between media expertise and lived parenting experience</li>
+          </ul>
+
+          <h3>My work today</h3>
+          <p><strong>Digital Guardian Wellness</strong> is now a growing community of families, educators, and mental health advocates committed to raising emotionally intelligent, tech-aware kids.</p>
+          <p>Through <strong>ALIVE Podcast Africa</strong>, I continue conversations on mindfulness, motherhood, and mental health—reaching women who, like me, are trying to build meaningful lives across cultures and continents.</p>
+          <p>And through <strong>workshops, consulting, and speaking engagements</strong>, I partner with schools, organizations, and corporate teams who understand that digital wellness isn't a parenting trend—it's a public health imperative.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section" id="services" style="background:var(--white);border-top:1px solid var(--stone);border-bottom:1px solid var(--stone);">
+    <div class="container">
+      <div class="section-header">
+        <div class="accent-line"></div>
+        <h2 class="section-title">Work with me</h2>
+        <p class="section-subtitle">Workshops, consulting, and speaking engagements for schools, organizations, and families ready to take digital wellness seriously.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <h3>Digital wellness workshops</h3>
+          <p>For schools, parent groups, and community organizations. Interactive 60–90 minute sessions covering screen-time frameworks, conversation starters, and a personalized family digital agreement.</p>
+          <span class="service-tag">In-person or virtual</span>
+        </div>
+        <div class="service-card">
+          <h3>Corporate & institutional training</h3>
+          <p>For HR and leadership teams. Half-day or full-day modules on digital habits, remote-work boundaries, and supporting employees who are parenting in the digital age.</p>
+          <span class="service-tag">Change management</span>
+        </div>
+        <div class="service-card">
+          <h3>1:1 family consultations</h3>
+          <p>Personalized 60-minute video call + follow-up resource pack. Custom screen-time boundaries, tool recommendations, and a 30-day action plan.</p>
+          <span class="service-tag">Book via Calendly</span>
+        </div>
+        <div class="service-card">
+          <h3>Writing & content strategy</h3>
+          <p>Research-backed articles, white papers, and content strategy for brands in parenting, ed-tech, or wellness.</p>
+          <span class="service-tag">Publications & brands</span>
+        </div>
+        <div class="service-card" style="grid-column:1/-1;">
+          <h3>Speaking & keynotes</h3>
+          <p>Conferences, panels, podcasts, and media appearances. Topics include digital wellness as public health, AI and child development, and the future of family life. Available for events in the UAE, Africa, and virtually worldwide.</p>
+          <span class="service-tag">UAE, Africa & virtual</span>
+        </div>
+      </div>
+
+      <div style="margin-top:56px;">
+        <div class="accent-line"></div>
+        <h3 style="font-size:22px;font-weight:600;color:var(--charcoal);margin-bottom:24px;">How it works</h3>
+        <div class="services-grid" style="grid-template-columns:repeat(4,1fr);">
+          <div class="service-card" style="text-align:center;">
+            <div style="font-size:32px;font-weight:600;color:var(--terracotta);margin-bottom:8px;">1</div>
+            <h3 style="font-size:16px;">Discovery call</h3>
+            <p style="font-size:14px;">20-minute chat to understand your needs, audience, and goals.</p>
+          </div>
+          <div class="service-card" style="text-align:center;">
+            <div style="font-size:32px;font-weight:600;color:var(--terracotta);margin-bottom:8px;">2</div>
+            <h3 style="font-size:16px;">Proposal</h3>
+            <p style="font-size:14px;">Customized scope, timeline, and investment within 48 hours.</p>
+          </div>
+          <div class="service-card" style="text-align:center;">
+            <div style="font-size:32px;font-weight:600;color:var(--terracotta);margin-bottom:8px;">3</div>
+            <h3 style="font-size:16px;">Delivery</h3>
+            <p style="font-size:14px;">High-energy, research-backed sessions tailored to your group.</p>
+          </div>
+          <div class="service-card" style="text-align:center;">
+            <div style="font-size:32px;font-weight:600;color:var(--terracotta);margin-bottom:8px;">4</div>
+            <h3 style="font-size:16px;">Follow-up</h3>
+            <p style="font-size:14px;">Resource packs, recordings, and 30-day email support.</p>
+          </div>
+        </div>
+        <div style="text-align:center;margin-top:32px;">
+          <a href="#contact" class="btn btn-primary">Schedule a discovery call</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="newsletter-section" id="newsletter">
+    <div class="container">
+      <div class="accent-line" style="background:rgba(255,255,255,0.4);margin:0 auto 20px;"></div>
+      <h2 class="section-title">The Digital Guardian Weekly</h2>
+      <p class="section-subtitle">One email a week with practical digital parenting tips, research highlights, and real-world tools you can use immediately. No guilt. No fluff. Just what works.</p>
+      <form class="newsletter-form" action="https://docs.google.com/forms/d/e/YOUR_GOOGLE_FORM_ID/formResponse" method="POST" target="_blank" onsubmit="handleNewsletterSubmit(event)">
+        <input type="email" name="entry.123456789" placeholder="your@email.com" required>
+        <button type="submit" class="btn">Subscribe</button>
+      </form>
+      <p class="newsletter-disclaimer">Unsubscribe anytime. Your email is never shared.</p>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section class="section" id="work">
+    <div class="container">
+      <div class="section-header">
+        <div class="accent-line"></div>
+        <h2 class="section-title">The work</h2>
+        <p class="section-subtitle">Building bridges between technology, wellness, and community—one project at a time.</p>
+      </div>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-image">
+            <div class="project-image-placeholder">Digital Guardian Wellness<br><span style="font-size:12px">Platform screenshot</span></div>
+          </div>
+          <div class="project-body">
+            <h3>Digital Guardian Wellness</h3>
+            <p>Founder & CEO. A platform offering 1,000+ evidence-based resources for families navigating screen time, online safety, and mental health.</p>
+            <a href="https://guardd-reimagined-web.vercel.app" target="_blank" class="project-link">Visit platform →</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-image">
+            <div class="project-image-placeholder">ALIVE Podcast Africa<br><span style="font-size:12px">YouTube channel</span></div>
+          </div>
+          <div class="project-body">
+            <h3>ALIVE Podcast Africa</h3>
+            <p>Host & Producer. Conversations on mindfulness, motherhood, and mental health for women across the African continent.</p>
+            <a href="https://www.youtube.com/@ALIVEpodcastafrica" target="_blank" class="project-link">Listen on YouTube →</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-image">
+            <div class="project-image-placeholder">Peace360 Initiative<br><span style="font-size:12px">Mental health advocacy</span></div>
+          </div>
+          <div class="project-body">
+            <h3>Peace360 Initiative</h3>
+            <p>Advocate & facilitator. Mental health workshops and community building for at-risk and underserved populations.</p>
+            <a href="#" class="project-link">Learn more →</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-image">
+            <div class="project-image-placeholder">Digital Guardian YouTube<br><span style="font-size:12px">Kid-friendly content</span></div>
+          </div>
+          <div class="project-body">
+            <h3>Digital Guardian YouTube</h3>
+            <p>Creator. Kid-friendly educational content teaching children to be "SMART detectives" online.</p>
+            <a href="https://www.youtube.com/channel/UCCRU5NVBA7hyl18jXAICwaA" target="_blank" class="project-link">Watch →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIAL -->
+  <section class="testimonial-section section">
+    <div class="container">
+      <div class="testimonial">
+        <p class="testimonial-quote">"Wilma didn't just talk at us—she gave us tools we used that same evening. Our bedtime routine changed immediately."</p>
+        <p class="testimonial-author">— Parent workshop attendee, Dubai</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="section-header">
+        <div class="accent-line"></div>
+        <h2 class="section-title">Let's talk</h2>
+        <p class="section-subtitle">Whether you're a parent looking for resources, a school planning a workshop, or a podcast looking for a guest—I'd love to hear from you.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h3>Get in touch</h3>
+          <p>I typically respond within 24 hours on business days.</p>
+
+          <div class="contact-methods">
+            <div class="contact-method">
+              <div class="contact-method-text">
+                <h4>General inquiries</h4>
+                <p>hello@wilmawigman.com</p>
+              </div>
+              <button class="btn-small" onclick="copyEmail('hello@wilmawigman.com')">Copy</button>
+            </div>
+            <div class="contact-method">
+              <div class="contact-method-text">
+                <h4>Workshop & speaking</h4>
+                <p>speaking@wilmawigman.com</p>
+              </div>
+              <button class="btn-small" onclick="copyEmail('speaking@wilmawigman.com')">Copy</button>
+            </div>
+            <div class="contact-method">
+              <div class="contact-method-text">
+                <h4>Media & press</h4>
+                <p>press@wilmawigman.com</p>
+              </div>
+              <button class="btn-small" onclick="copyEmail('press@wilmawigman.com')">Copy</button>
+            </div>
+          </div>
+
+          <div class="social-links">
+            <a href="https://linkedin.com/in/wilma-mwangi-01259611b" target="_blank" class="social-link">LinkedIn</a>
+            <a href="https://www.instagram.com/wilma_mwangi?utm_source=qr&igsh=MTc5OWlvbTQxcjA3cg==" target="_blank" class="social-link">Instagram</a>
+            <a href="https://www.youtube.com/@ALIVEpodcastafrica" target="_blank" class="social-link">ALIVE Podcast</a>
+            <a href="https://www.youtube.com/channel/UCCRU5NVBA7hyl18jXAICwaA" target="_blank" class="social-link">Digital Guardian</a>
+            <a href="#newsletter" class="social-link">Newsletter</a>
+          </div>
+        </div>
+
+        <div class="google-form-card">
+          <h3>Send a message</h3>
+          <p>Fill out my contact form to tell me about your project, your audience, and what you're hoping to achieve. I'll get back to you within 24 hours.</p>
+          <a href="https://docs.google.com/forms/d/e/YOUR_GOOGLE_FORM_ID/viewform" target="_blank" class="btn btn-primary">Open contact form</a>
+          <p style="font-size:12px;color:var(--warm-gray);margin-top:16px;">Powered by Google Forms. No account required.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRIVACY POLICY -->
+  <section class="privacy-section section" id="privacy">
+    <div class="container">
+      <div class="section-header">
+        <div class="accent-line"></div>
+        <h2 class="section-title">Privacy policy</h2>
+      </div>
+      <div class="privacy-content">
+        <h3>Introduction</h3>
+        <p>This privacy policy explains how Wilma Wigman collects, uses, and protects your personal information when you visit this website or use my services. I am committed to ensuring that your privacy is protected.</p>
+
+        <h3>Information I collect</h3>
+        <p>I may collect the following information:</p>
+        <ul>
+          <li>Name and contact information (email address, phone number)</li>
+          <li>Information about your inquiry or project</li>
+          <li>Demographic information such as location</li>
+          <li>Website usage data via privacy-friendly analytics</li>
+        </ul>
+
+        <h3>How I use your information</h3>
+        <p>I use the information I collect to:</p>
+        <ul>
+          <li>Respond to your inquiries and provide the services you request</li>
+          <li>Send newsletters and updates (only if you explicitly subscribe)</li>
+          <li>Improve my website and services</li>
+          <li>Comply with legal obligations</li>
+        </ul>
+
+        <h3>Data sharing</h3>
+        <p>I do not sell, trade, or rent your personal information to third parties. I may share your information with trusted service providers (such as email delivery services) only to the extent necessary to provide my services to you.</p>
+
+        <h3>Google Forms & third-party services</h3>
+        <p>My contact form and newsletter signup are powered by Google Forms. When you submit information through these forms, your data is subject to <a href="https://policies.google.com/privacy" target="_blank">Google's Privacy Policy</a>. I recommend reviewing their policy before submitting any personal information.</p>
+
+        <h3>Cookies</h3>
+        <p>This website does not use tracking cookies. I may use essential cookies necessary for the functioning of the website (such as dark mode preference). These cookies do not collect personal information.</p>
+
+        <h3>Your rights</h3>
+        <p>You have the right to:</p>
+        <ul>
+          <li>Request access to the personal information I hold about you</li>
+          <li>Request correction or deletion of your personal information</li>
+          <li>Opt out of marketing communications at any time</li>
+          <li>Request that I restrict the processing of your data</li>
+        </ul>
+
+        <h3>Data retention</h3>
+        <p>I retain your personal information only for as long as necessary to fulfill the purposes for which it was collected, or as required by law. If you subscribe to my newsletter, I retain your email address until you unsubscribe.</p>
+
+        <h3>Security</h3>
+        <p>I am committed to ensuring that your information is secure. I have put in place suitable physical, electronic, and managerial procedures to safeguard and secure the information I collect online.</p>
+
+        <h3>Changes to this policy</h3>
+        <p>I may update this privacy policy from time to time. Any changes will be posted on this page with an updated effective date.</p>
+
+        <h3>Contact me</h3>
+        <p>If you have any questions about this privacy policy or how I handle your data, please contact me at <a href="mailto:hello@wilmawigman.com">hello@wilmawigman.com</a>.</p>
+
+        <p class="privacy-date">Last updated: August 2026</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">Wilma Wigman</div>
+          <p class="footer-desc">Digital wellness strategist, founder of Digital Guardian Wellness, and advocate for emotionally intelligent, tech-aware families.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigate</h4>
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#work">Work</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>Projects</h4>
+          <a href="https://guardd-reimagined-web.vercel.app" target="_blank">Digital Guardian</a>
+          <a href="https://www.youtube.com/@ALIVEpodcastafrica" target="_blank">ALIVE Podcast</a>
+          <a href="https://www.youtube.com/channel/UCCRU5NVBA7hyl18jXAICwaA" target="_blank">YouTube</a>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="https://linkedin.com/in/wilma-mwangi-01259611b" target="_blank">LinkedIn</a>
+          <a href="https://www.instagram.com/wilma_mwangi?utm_source=qr&igsh=MTc5OWlvbTQxcjA3cg==" target="_blank">Instagram</a>
+          <a href="#newsletter">Newsletter</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Wilma Wigman. All rights reserved. <a href="#privacy" style="color:rgba(255,255,255,0.4);display:inline;">Privacy policy</a></p>
+        <p class="footer-crisis"><strong>Crisis resources:</strong> UAE 116111 | USA/Canada 988 | UK text 85258 | <a href="https://findahelpline.com" target="_blank" style="color:rgba(255,255,255,0.4);display:inline;">findahelpline.com</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    function toggleMenu() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+    }
+
+    // Copy email to clipboard
+    function copyEmail(email) {
+      navigator.clipboard.writeText(email).then(() => {
+        alert('Copied: ' + email);
+      });
+    }
+
+    // Theme toggle
+    function toggleTheme() {
+      document.body.classList.toggle('dark-mode');
+      localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+    }
+
+    // Load saved theme
+    (function() {
+      const saved = localStorage.getItem('theme');
+      if (saved === 'dark') {
+        document.body.classList.add('dark-mode');
+      }
+    })();
+
+    // Active nav link on scroll
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        if (scrollY >= sectionTop - 200) {
+          current = section.getAttribute('id');
+        }
+      });
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+          link.classList.add('active');
+        }
+      });
+    });
+
+    // Scroll reveal animation
+    const revealElements = document.querySelectorAll('.section-header, .service-card, .project-card, .stat-item, .contact-method');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    revealElements.forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'all 0.6s ease';
+      revealObserver.observe(el);
+    });
+
+    // Newsletter submit handler
+    function handleNewsletterSubmit(e) {
+      // Replace YOUR_GOOGLE_FORM_ID with your actual Google Form ID
+      const formId = 'YOUR_GOOGLE_FORM_ID';
+      if (formId === 'YOUR_GOOGLE_FORM_ID') {
+        e.preventDefault();
+        alert('Newsletter form is almost ready! Replace YOUR_GOOGLE_FORM_ID in the HTML with your actual Google Form ID. See the setup instructions for details.');
+        return false;
+      }
+    }
+  </script>
+</body>
+</html>

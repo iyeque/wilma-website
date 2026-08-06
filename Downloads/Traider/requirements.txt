@@ -1,8 +1,0 @@
-python-binance
-pandas
-ta
-matplotlib
-requests
-streamlit
-plotly
-python-dotenv

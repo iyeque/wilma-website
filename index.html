@@ -869,26 +869,38 @@
       .testimonial-quote { font-size: 20px; }
     }
   </style>
+<base target="_blank">
 </head>
 <body>
+  <script>
+    (function() {
+      var saved = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (saved === 'dark' || (!saved && prefersDark)) {
+        document.body.classList.add('dark-mode');
+      }
+    })();
+  </script>
 
   <!-- NAVIGATION -->
   <nav class="nav">
     <div class="nav-inner">
       <a href="#" class="nav-brand">Wilma Wigman</a>
-      <div class="nav-links">
-        <a href="#about" class="nav-link">About</a>
-        <a href="#services" class="nav-link">Services</a>
-        <a href="#work" class="nav-link">Work</a>
-        <a href="#contact" class="nav-link">Contact</a>
+      <div style="display:flex;align-items:center;gap:12px;">
         <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" title="Toggle dark mode">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
         </button>
-        <a href="#contact" class="nav-cta">Work with me</a>
+        <div class="nav-links">
+          <a href="#about" class="nav-link">About</a>
+          <a href="#services" class="nav-link">Services</a>
+          <a href="#work" class="nav-link">Work</a>
+          <a href="#contact" class="nav-link">Contact</a>
+          <a href="#contact" class="nav-cta">Work with me</a>
+        </div>
+        <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
       </div>
-      <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Menu">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-      </button>
     </div>
   </nav>
 
@@ -897,7 +909,8 @@
     <a href="#services" onclick="toggleMenu()">Services</a>
     <a href="#work" onclick="toggleMenu()">Work</a>
     <a href="#contact" onclick="toggleMenu()">Contact</a>
-    <a href="#contact" class="btn btn-primary" style="margin-top:16px;text-align:center" onclick="toggleMenu()">Work with me</a>
+    <button class="btn btn-secondary" style="margin-top:8px;justify-content:center;width:100%" onclick="toggleTheme()">Toggle dark / light mode</button>
+    <a href="#contact" class="btn btn-primary" style="margin-top:8px;text-align:center" onclick="toggleMenu()">Work with me</a>
   </div>
 
   <!-- HERO -->
@@ -913,7 +926,7 @@
           </div>
         </div>
         <div class="hero-image">
-          <img src="assets/hero-wilma.jpg" alt="Wilma Wigman — Digital Wellness Strategist">
+          <img src="assets/Full shot 1.png" alt="Wilma Wigman — Digital Wellness Strategist">
         </div>
       </div>
     </div>
@@ -934,7 +947,7 @@
           </div>
         </div>
         <div class="problem-image">
-          <img src="assets/wilma-workshop.jpg" alt="Wilma speaking at a panel discussion">
+          <img src="assets/Workshop 1.png" alt="Wilma speaking at a panel discussion">
         </div>
       </div>
     </div>
@@ -973,7 +986,7 @@
       </div>
       <div class="about-grid">
         <div class="about-image">
-          <img src="assets/wilma-portrait.jpg" alt="Wilma Wigman portrait">
+          <img src="assets/photo.jpg" alt="Wilma Wigman portrait">
         </div>
         <div class="about-content">
           <p>I didn't set out to become a "digital wellness expert."</p>
@@ -1323,13 +1336,6 @@
       localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
     }
 
-    // Load saved theme
-    (function() {
-      const saved = localStorage.getItem('theme');
-      if (saved === 'dark') {
-        document.body.classList.add('dark-mode');
-      }
-    })();
 
     // Active nav link on scroll
     const sections = document.querySelectorAll('section[id]');

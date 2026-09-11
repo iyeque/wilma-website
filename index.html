@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta "viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Wilma Wigman — Digital Wellness Strategist & Founder</title>
-  <meta "description" content="Wilma Wigman helps parents raise emotionally intelligent, tech-aware kids. Founder of Digital Guardian Wellness. Speaker, consultant, and advocate based in Dubai.">
+  <meta name="description" content="Wilma Wigman helps parents raise emotionally intelligent, tech-aware kids. Founder of Digital Guardian Wellness. Speaker, consultant, and advocate based in Dubai.">
   <meta property="og:title" content="Wilma Wigman — Digital Wellness Strategist">
   <meta property="og:description" content="Helping parents raise tech-aware kids without the guilt. Founder of Digital Guardian Wellness.">
   <meta property="og:type" content="website">
@@ -30,9 +30,6 @@
       --shadow-lg: 0 8px 32px rgba(42, 37, 34, 0.12);
     }
 
-    /* Dark mode is controlled ONLY by body.dark-mode class */
-    /* System preference is handled by the inline script in <body> */
-
     body.dark-mode {
       --cream: #1A1715;
       --cream-dark: #25211E;
@@ -48,6 +45,7 @@
     body.dark-mode .stats-section, body.dark-mode .footer { background: #0F0D0C; }
     body.dark-mode .mobile-menu { background: var(--cream); }
     body.dark-mode img { opacity: 0.92; }
+    body.dark-mode .modal { background: var(--cream-dark); }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
@@ -392,6 +390,8 @@
       border: 1px solid var(--stone);
       border-radius: 12px;
       transition: all 0.3s ease;
+      cursor: pointer;
+      position: relative;
     }
     .service-card:hover {
       border-color: var(--terracotta);
@@ -421,6 +421,17 @@
       text-transform: uppercase;
       letter-spacing: 0.04em;
     }
+    .service-more {
+      position: absolute;
+      top: 28px;
+      right: 28px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--terracotta);
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+    .service-card:hover .service-more { opacity: 1; }
 
     .stats-section {
       background: var(--charcoal);
@@ -534,12 +545,6 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-    }
-    .project-image-placeholder {
-      font-size: 14px;
-      color: var(--warm-gray);
-      text-align: center;
-      padding: 20px;
     }
     .project-body {
       padding: 24px;
@@ -701,7 +706,9 @@
     .privacy-section {
       background: var(--white);
       border-top: 1px solid var(--stone);
+      display: none;
     }
+    .privacy-section.open { display: block; }
     .privacy-content {
       max-width: 720px;
     }
@@ -775,6 +782,7 @@
       color: rgba(255,255,255,0.6);
       margin-bottom: 10px;
       transition: color 0.2s ease;
+      cursor: pointer;
     }
     .footer-col a:hover { color: var(--terracotta); }
     .footer-bottom {
@@ -818,6 +826,106 @@
       border-bottom: 1px solid var(--stone);
     }
 
+    /* ===== MODALS ===== */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(26, 23, 21, 0.5);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .modal-overlay.show { display: flex; }
+    .modal {
+      background: var(--white);
+      border-radius: 16px;
+      max-width: 560px;
+      width: 100%;
+      max-height: 85vh;
+      overflow-y: auto;
+      padding: 40px;
+      position: relative;
+      box-shadow: var(--shadow-lg);
+      animation: modalIn 0.3s ease;
+    }
+    @keyframes modalIn {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: none;
+      border: none;
+      font-size: 22px;
+      color: var(--warm-gray);
+      cursor: pointer;
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      line-height: 1;
+      transition: all 0.2s ease;
+    }
+    .modal-close:hover {
+      background: var(--cream-dark);
+      color: var(--charcoal);
+    }
+    .modal h3 {
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 8px;
+      padding-right: 32px;
+    }
+    .modal .modal-audience {
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--sage);
+      margin-bottom: 20px;
+    }
+    .modal p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--warm-gray);
+      margin-bottom: 16px;
+    }
+    .modal ul {
+      margin: 16px 0 20px;
+      padding: 0;
+      list-style: none;
+    }
+    .modal ul li {
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--warm-gray);
+      padding: 8px 0 8px 24px;
+      position: relative;
+      border-bottom: 1px solid var(--stone);
+    }
+    .modal ul li:last-child { border-bottom: none; }
+    .modal ul li::before {
+      content: '';
+      position: absolute;
+      left: 4px;
+      top: 16px;
+      width: 6px;
+      height: 6px;
+      background: var(--terracotta);
+      border-radius: 50%;
+    }
+    .modal-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
     @media (max-width: 900px) {
       .hero-grid, .problem-grid, .about-grid, .contact-grid {
         grid-template-columns: 1fr;
@@ -843,6 +951,13 @@
         width: 100%;
         min-width: unset;
       }
+      .modal {
+        padding: 32px 24px;
+        align-self: flex-end;
+        border-radius: 16px 16px 0 0;
+        max-height: 80vh;
+      }
+      .modal-overlay { padding: 0; align-items: flex-end; }
     }
     @media (max-width: 640px) {
       .nav-links { display: none; }
@@ -854,6 +969,7 @@
       .testimonial-quote { font-size: 20px; }
     }
   </style>
+<base target="_blank">
 <base target="_blank">
 </head>
 <body>
@@ -1008,30 +1124,35 @@
       <div class="section-header">
         <div class="accent-line"></div>
         <h2 class="section-title">Work with me</h2>
-        <p class="section-subtitle">Workshops, consulting, and speaking engagements for schools, organizations, and families ready to take digital wellness seriously.</p>
+        <p class="section-subtitle">Workshops, consulting, and speaking engagements for schools, organizations, and families ready to take digital wellness seriously. Click any card for full details and pricing.</p>
       </div>
       <div class="services-grid">
-        <div class="service-card">
+        <div class="service-card" onclick="openModal('workshops')">
+          <span class="service-more">Details →</span>
           <h3>Digital wellness workshops</h3>
           <p>For schools, parent groups, and community organizations. Interactive 60–90 minute sessions covering screen-time frameworks, conversation starters, and a personalized family digital agreement.</p>
           <span class="service-tag">In-person or virtual</span>
         </div>
-        <div class="service-card">
+        <div class="service-card" onclick="openModal('corporate')">
+          <span class="service-more">Details →</span>
           <h3>Corporate & institutional training</h3>
           <p>For HR and leadership teams. Half-day or full-day modules on digital habits, remote-work boundaries, and supporting employees who are parenting in the digital age.</p>
           <span class="service-tag">Change management</span>
         </div>
-        <div class="service-card">
+        <div class="service-card" onclick="openModal('consultation')">
+          <span class="service-more">Details →</span>
           <h3>1:1 family consultations</h3>
           <p>Personalized 60-minute video call + follow-up resource pack. Custom screen-time boundaries, tool recommendations, and a 30-day action plan.</p>
           <span class="service-tag">Book via Calendly</span>
         </div>
-        <div class="service-card">
+        <div class="service-card" onclick="openModal('writing')">
+          <span class="service-more">Details →</span>
           <h3>Writing & content strategy</h3>
           <p>Research-backed articles, white papers, and content strategy for brands in parenting, ed-tech, or wellness.</p>
           <span class="service-tag">Publications & brands</span>
         </div>
-        <div class="service-card" style="grid-column:1/-1;">
+        <div class="service-card" style="grid-column:1/-1;" onclick="openModal('speaking')">
+          <span class="service-more">Details →</span>
           <h3>Speaking & keynotes</h3>
           <p>Conferences, panels, podcasts, and media appearances. Topics include digital wellness as public health, AI and child development, and the future of family life. Available for events in the UAE, Africa, and virtually worldwide.</p>
           <span class="service-tag">UAE, Africa & virtual</span>
@@ -1042,22 +1163,22 @@
         <div class="accent-line"></div>
         <h3 style="font-size:22px;font-weight:600;color:var(--charcoal);margin-bottom:24px;">How it works</h3>
         <div class="services-grid" style="grid-template-columns:repeat(4,1fr);">
-          <div class="service-card" style="text-align:center;">
+          <div class="service-card" style="text-align:center;cursor:default;">
             <div style="font-size:32px;font-weight:600;color:var(--terracotta);margin-bottom:8px;">1</div>
             <h3 style="font-size:16px;">Discovery call</h3>
             <p style="font-size:14px;">20-minute chat to understand your needs, audience, and goals.</p>
           </div>
-          <div class="service-card" style="text-align:center;">
+          <div class="service-card" style="text-align:center;cursor:default;">
             <div style="font-size:32px;font-weight:600;color:var(--terracotta);margin-bottom:8px;">2</div>
             <h3 style="font-size:16px;">Proposal</h3>
             <p style="font-size:14px;">Customized scope, timeline, and investment within 48 hours.</p>
           </div>
-          <div class="service-card" style="text-align:center;">
+          <div class="service-card" style="text-align:center;cursor:default;">
             <div style="font-size:32px;font-weight:600;color:var(--terracotta);margin-bottom:8px;">3</div>
             <h3 style="font-size:16px;">Delivery</h3>
             <p style="font-size:14px;">High-energy, research-backed sessions tailored to your group.</p>
           </div>
-          <div class="service-card" style="text-align:center;">
+          <div class="service-card" style="text-align:center;cursor:default;">
             <div style="font-size:32px;font-weight:600;color:var(--terracotta);margin-bottom:8px;">4</div>
             <h3 style="font-size:16px;">Follow-up</h3>
             <p style="font-size:14px;">Resource packs, recordings, and 30-day email support.</p>
@@ -1076,7 +1197,7 @@
       <div class="accent-line" style="background:rgba(255,255,255,0.4);margin:0 auto 20px;"></div>
       <h2 class="section-title">The Digital Guardian Weekly</h2>
       <p class="section-subtitle">One email a week with practical digital parenting tips, research highlights, and real-world tools you can use immediately. No guilt. No fluff. Just what works.</p>
-      <form class="newsletter-form" action="https://docs.google.com/forms/d/e/1FAIpQLScVCg5x-UaP2lcLvVqUiaykmMBjditBIN9Ii802ppyYuUFZ6g/formResponse" method="POST" target="_blank" onsubmit="handleNewsletterSubmit(event)">
+      <form class="newsletter-form" action="https://docs.google.com/forms/d/e/1FAIpQLScVCg5x-UaP2lcLvVqUiaykmMBjditBIN9Ii802ppyYuUFZ6g/formResponse" method="POST" target="_blank">
         <input type="email" name="entry.507562635" placeholder="your@email.com" required>
         <button type="submit" class="btn">Subscribe</button>
       </form>
@@ -1120,7 +1241,7 @@
           <div class="project-body">
             <h3>Peace360 Initiative</h3>
             <p>Advocate & facilitator. Mental health workshops and community building for at-risk and underserved populations.</p>
-            <a href="#" class="project-link">Learn more →</a>
+            <a href="https://www.linkedin.com/company/peace360-initiative/posts/?feedView=all" target="_blank" class="project-link">Learn more →</a>
           </div>
         </div>
         <div class="project-card">
@@ -1158,29 +1279,15 @@
       <div class="contact-grid">
         <div class="contact-info">
           <h3>Get in touch</h3>
-          <p>I typically respond within 24 hours on business days.</p>
+          <p>I typically respond within 24 hours on business days. Workshop, speaking, and press inquiries all welcome.</p>
 
           <div class="contact-methods">
             <div class="contact-method">
               <div class="contact-method-text">
-                <h4>General inquiries</h4>
-                <p>hello@wilmawigman.com</p>
+                <h4>Email</h4>
+                <p>socialbywilma@gmail.com</p>
               </div>
-              <button class="btn-small" onclick="copyEmail('hello@wilmawigman.com')">Copy</button>
-            </div>
-            <div class="contact-method">
-              <div class="contact-method-text">
-                <h4>Workshop & speaking</h4>
-                <p>speaking@wilmawigman.com</p>
-              </div>
-              <button class="btn-small" onclick="copyEmail('speaking@wilmawigman.com')">Copy</button>
-            </div>
-            <div class="contact-method">
-              <div class="contact-method-text">
-                <h4>Media & press</h4>
-                <p>press@wilmawigman.com</p>
-              </div>
-              <button class="btn-small" onclick="copyEmail('press@wilmawigman.com')">Copy</button>
+              <button class="btn-small" onclick="copyEmail('socialbywilma@gmail.com')">Copy</button>
             </div>
           </div>
 
@@ -1203,7 +1310,7 @@
     </div>
   </section>
 
-  <!-- PRIVACY POLICY -->
+  <!-- PRIVACY POLICY (collapsible) -->
   <section class="privacy-section section" id="privacy">
     <div class="container">
       <div class="section-header">
@@ -1260,9 +1367,9 @@
         <p>I may update this privacy policy from time to time. Any changes will be posted on this page with an updated effective date.</p>
 
         <h3>Contact me</h3>
-        <p>If you have any questions about this privacy policy or how I handle your data, please contact me at <a href="mailto:hello@wilmawigman.com">hello@wilmawigman.com</a>.</p>
+        <p>If you have any questions about this privacy policy or how I handle your data, please contact me at <a href="mailto:socialbywilma@gmail.com">socialbywilma@gmail.com</a>.</p>
 
-        <p class="privacy-date">Last updated: August 2026</p>
+        <p class="privacy-date">Last updated: September 2026</p>
       </div>
     </div>
   </section>
@@ -1296,11 +1403,108 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>© 2026 Wilma Wigman. All rights reserved. <a href="#privacy" style="color:rgba(255,255,255,0.4);display:inline;">Privacy policy</a></p>
+        <p>© 2026 Wilma Wigman. All rights reserved. <a href="#privacy" id="privacyToggle" style="color:rgba(255,255,255,0.4);display:inline;text-decoration:underline;cursor:pointer;">Privacy policy</a></p>
         <p class="footer-crisis"><strong>Crisis resources:</strong> UAE 116111 | USA/Canada 988 | UK text 85258 | <a href="https://findahelpline.com" target="_blank" style="color:rgba(255,255,255,0.4);display:inline;">findahelpline.com</a></p>
       </div>
     </div>
   </footer>
+
+  <!-- SERVICE MODALS -->
+  <div class="modal-overlay" id="modal-workshops" onclick="closeOnBackdrop(event)">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal()" aria-label="Close">×</button>
+      <h3>Digital wellness workshops</h3>
+      <div class="modal-audience">Schools · Parent groups · Community organizations</div>
+      <p>Interactive 60–90 minute sessions that leave participants with practical tools they can use the same evening. No lectures—every workshop is built around real scenarios from family life.</p>
+      <ul>
+        <li>A practical screen-time framework that ends daily battles</li>
+        <li>Age-appropriate conversation starters about online safety, AI, and digital citizenship</li>
+        <li>A personalized family digital agreement template</li>
+        <li>Access to Digital Guardian's 1,000+ resource library</li>
+      </ul>
+      <div class="modal-actions">
+        <a href="#contact" class="btn btn-primary" onclick="closeModal()">Let's talk →</a>
+        <button class="btn btn-secondary" onclick="closeModal()">Maybe later</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="modal-corporate" onclick="closeOnBackdrop(event)">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal()" aria-label="Close">×</button>
+      <h3>Corporate & institutional training</h3>
+      <div class="modal-audience">HR teams · Leadership development · Employee wellness</div>
+      <p>Half-day or full-day training modules for organizations that understand digital wellness isn't just a parenting issue—it's a workplace performance and wellbeing issue.</p>
+      <ul>
+        <li>How digital habits impact productivity, mental health, and team culture</li>
+        <li>Boundaries for remote work and "always-on" expectations</li>
+        <li>Supporting employees who are also navigating parenting in the digital age</li>
+        <li>Change management strategies for rolling out digital wellness initiatives</li>
+      </ul>
+      <div class="modal-actions">
+        <a href="#contact" class="btn btn-primary" onclick="closeModal()">Let's talk →</a>
+        <button class="btn btn-secondary" onclick="closeModal()">Maybe later</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="modal-consultation" onclick="closeOnBackdrop(event)">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal()" aria-label="Close">×</button>
+      <h3>1:1 family consultations</h3>
+      <div class="modal-audience">Parents who want personalized guidance</div>
+      <p>Sometimes you don't need a workshop. You need someone to look at your family's specific situation and say, "Here's what will actually work for you."</p>
+      <ul>
+        <li>Audit of your family's current digital habits</li>
+        <li>Custom screen-time boundaries tailored to your child's age and temperament</li>
+        <li>Tool recommendations—parental controls, family apps, content filters</li>
+        <li>A 30-day action plan with email check-ins</li>
+      </ul>
+      <div class="modal-actions">
+        <a href="#contact" class="btn btn-primary" onclick="closeModal()">Let's talk →</a>
+        <button class="btn btn-secondary" onclick="closeModal()">Maybe later</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="modal-writing" onclick="closeOnBackdrop(event)">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal()" aria-label="Close">×</button>
+      <h3>Writing & content strategy</h3>
+      <div class="modal-audience">Brands · Publications · Platforms in parenting, ed-tech & wellness</div>
+      <p>Research-backed content that builds authority with parents—without the fear-mongering or fluff that dominates this space.</p>
+      <ul>
+        <li>Articles and white papers grounded in peer-reviewed research</li>
+        <li>Content strategy for family-focused products and services</li>
+        <li>Ghostwriting for founders and executives on tech ethics and child development</li>
+        <li>Brand voice development for wellness and education brands</li>
+      </ul>
+      <div class="modal-actions">
+        <a href="#contact" class="btn btn-primary" onclick="closeModal()">Let's talk →</a>
+        <button class="btn btn-secondary" onclick="closeModal()">Maybe later</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="modal-speaking" onclick="closeOnBackdrop(event)">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal()" aria-label="Close">×</button>
+      <h3>Speaking & keynotes</h3>
+      <div class="modal-audience">Conferences · Panels · Podcasts · Media</div>
+      <p>High-energy, research-backed talks that leave audiences with a new way of seeing the digital world—and concrete steps to change their relationship with it.</p>
+      <ul>
+        <li>The Future of Family Life in a Connected World</li>
+        <li>Why "Screen Time" Is the Wrong Metric</li>
+        <li>Building Emotional Intelligence in the Age of AI</li>
+        <li>Digital Wellness as a Public Health Imperative</li>
+        <li>From Media Creative to Digital Guardian: A Founder Story</li>
+      </ul>
+      <div class="modal-actions">
+        <a href="#contact" class="btn btn-primary" onclick="closeModal()">Let's talk →</a>
+        <button class="btn btn-secondary" onclick="closeModal()">Maybe later</button>
+      </div>
+    </div>
+  </div>
 
   <script>
     // ===== DARK MODE =====
@@ -1337,13 +1541,55 @@
       }
     }
 
+    // ===== SERVICE MODALS =====
+    function openModal(id) {
+      var overlay = document.getElementById('modal-' + id);
+      if (overlay) {
+        overlay.classList.add('show');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+    function closeModal() {
+      var overlays = document.querySelectorAll('.modal-overlay');
+      overlays.forEach(function(o) { o.classList.remove('show'); });
+      document.body.style.overflow = '';
+    }
+    function closeOnBackdrop(e) {
+      if (e.target === e.currentTarget) {
+        closeModal();
+      }
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') { closeModal(); }
+    });
+
+    // ===== PRIVACY TOGGLE =====
+    function togglePrivacy(e) {
+      if (e) e.preventDefault();
+      var section = document.getElementById('privacy');
+      if (!section) return;
+      var isOpen = section.classList.toggle('open');
+      if (isOpen) {
+        setTimeout(function() {
+          section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 50);
+      }
+    }
+
     // ===== SMOOTH SCROLL FOR ALL INTERNAL LINKS =====
     document.addEventListener('DOMContentLoaded', function() {
+      // Privacy toggle link
+      var privacyToggle = document.getElementById('privacyToggle');
+      if (privacyToggle) {
+        privacyToggle.addEventListener('click', togglePrivacy);
+      }
+
       var links = document.querySelectorAll('a[href^="#"]');
       links.forEach(function(link) {
         link.addEventListener('click', function(e) {
           var href = this.getAttribute('href');
           if (href && href.length > 1 && href !== '#') {
+            if (href === '#privacy') { return; } // handled by togglePrivacy
             var target = document.querySelector(href);
             if (target) {
               e.preventDefault();
@@ -1364,7 +1610,7 @@
         var current = '';
         var scrollPos = window.scrollY || window.pageYOffset;
         sections.forEach(function(section) {
-          if (scrollPos >= section.offsetTop - 200) {
+          if (getComputedStyle(section).display !== 'none' && scrollPos >= section.offsetTop - 200) {
             current = section.getAttribute('id');
           }
         });
@@ -1402,15 +1648,6 @@
         });
       }
     });
-
-    // ===== NEWSLETTER =====
-    function handleNewsletterSubmit(e) {
-      if ('YOUR_GOOGLE_FORM_ID' === 'YOUR_GOOGLE_FORM_ID') {
-        e.preventDefault();
-        alert('Newsletter form is almost ready! Replace YOUR_GOOGLE_FORM_ID in the HTML with your actual Google Form ID.');
-        return false;
-      }
-    }
   </script>
 </body>
 </html>

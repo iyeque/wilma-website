@@ -681,6 +681,56 @@
       display: inline-flex;
       justify-content: center;
     }
+    .form-field {
+      margin-bottom: 16px;
+    }
+    .form-field label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 6px;
+    }
+    .form-field input,
+    .form-field select,
+    .form-field textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 8px;
+      border: 1.5px solid var(--stone);
+      background: var(--cream);
+      color: var(--charcoal);
+      font-size: 15px;
+      font-family: var(--font);
+      transition: border-color 0.2s ease;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+    .form-field select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236B6560' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 36px;
+    }
+    .form-field input:focus,
+    .form-field select:focus,
+    .form-field textarea:focus {
+      outline: none;
+      border-color: var(--terracotta);
+    }
+    .form-field textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+    .form-field ::placeholder {
+      color: var(--warm-gray);
+      opacity: 0.6;
+    }
+    body.dark-mode .form-field input,
+    body.dark-mode .form-field select,
+    body.dark-mode .form-field textarea {
+      background: var(--cream);
+    }
     .social-links {
       display: flex;
       gap: 12px;
@@ -1292,19 +1342,46 @@
           </div>
 
           <div class="social-links">
-            <a href="https://linkedin.com/in/wilma-mwangi-01259611b" target="_blank" class="social-link">LinkedIn</a>
-            <a href="https://www.instagram.com/wilma_mwangi?utm_source=qr&igsh=MTc5OWlvbTQxcjA3cg==" target="_blank" class="social-link">Instagram</a>
+            <a href="https://www.linkedin.com/in/wilma-wigman-01259611b/" target="_blank" class="social-link">LinkedIn</a>
+            <a href="https://www.instagram.com/wilma_wigman?stkn=MzcybDZ1YjNvZDh4" target="_blank" class="social-link">Instagram</a>
             <a href="https://www.youtube.com/@ALIVEpodcastafrica" target="_blank" class="social-link">ALIVE Podcast</a>
             <a href="https://www.youtube.com/channel/UCCRU5NVBA7hyl18jXAICwaA" target="_blank" class="social-link">Digital Guardian</a>
             <a href="#newsletter" class="social-link">Newsletter</a>
           </div>
         </div>
 
-        <div class="google-form-card">
+        <div class="google-form-card" style="text-align:left;">
           <h3>Send a message</h3>
-          <p>Fill out my contact form to tell me about your project, your audience, and what you're hoping to achieve. I'll get back to you within 24 hours.</p>
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSc9A0cLMf2f9Z8-c1I9bgCytl39_3HGimyKmRMz1J1DbzxKXQ/viewform" target="_blank" class="btn btn-primary">Open contact form</a>
-          <p style="font-size:12px;color:var(--warm-gray);margin-top:16px;">Powered by Google Forms. No account required.</p>
+          <p>Tell me about your project, your audience, and what you're hoping to achieve. I'll get back to you within 24 hours.</p>
+          <form id="contactForm" onsubmit="submitContactForm(event)">
+            <div class="form-field">
+              <label for="cf-name">Name</label>
+              <input type="text" id="cf-name" name="entry.2005620554" required placeholder="Your name">
+            </div>
+            <div class="form-field">
+              <label for="cf-email">Email</label>
+              <input type="email" id="cf-email" name="entry.1045781291" required placeholder="your@email.com">
+            </div>
+            <div class="form-field">
+              <label for="cf-interest">I'm interested in</label>
+              <input type="text" id="cf-interest" name="entry.1065046570" list="interest-suggestions" required placeholder="e.g. Digital wellness workshop">
+              <datalist id="interest-suggestions">
+                <option value="Digital wellness workshop">
+                <option value="Corporate training">
+                <option value="1:1 family consultation">
+                <option value="Writing & content strategy">
+                <option value="Speaking & keynotes">
+                <option value="Something else">
+              </datalist>
+            </div>
+            <div class="form-field">
+              <label for="cf-message">Message</label>
+              <textarea id="cf-message" name="entry.1166974658" rows="4" required placeholder="Tell me about your project, audience, and goals..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" id="cf-submit" style="width:100%;justify-content:center;">Send message</button>
+            <p id="cf-status" style="font-size:13px;margin-top:12px;display:none;"></p>
+          </form>
+          <p style="font-size:12px;color:var(--warm-gray);margin-top:16px;">Your message goes straight to my inbox. No account required.</p>
         </div>
       </div>
     </div>
@@ -1397,8 +1474,8 @@
         </div>
         <div class="footer-col">
           <h4>Connect</h4>
-          <a href="https://linkedin.com/in/wilma-mwangi-01259611b" target="_blank">LinkedIn</a>
-          <a href="https://www.instagram.com/wilma_mwangi?utm_source=qr&igsh=MTc5OWlvbTQxcjA3cg==" target="_blank">Instagram</a>
+          <a href="https://www.linkedin.com/in/wilma-wigman-01259611b/" target="_blank">LinkedIn</a>
+          <a href="https://www.instagram.com/wilma_wigman?stkn=MzcybDZ1YjNvZDh4" target="_blank">Instagram</a>
           <a href="#newsletter">Newsletter</a>
         </div>
       </div>
@@ -1648,6 +1725,39 @@
         });
       }
     });
+
+    // ===== CONTACT FORM (submits to Google Forms in background) =====
+    var GOOGLE_FORM_ACTION = 'https://docs.google.com/forms/d/e/1FAIpQLSfOIeH2EKmtbjCY-JYE7ioN6loiT952cELpaiKhMN1jazC4zQ/formResponse';
+
+    function submitContactForm(e) {
+      e.preventDefault();
+      var form = document.getElementById('contactForm');
+      var status = document.getElementById('cf-status');
+      var btn = document.getElementById('cf-submit');
+
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+
+      var data = new FormData(form);
+
+      fetch(GOOGLE_FORM_ACTION, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: data
+      }).then(function() {
+        // no-cors means we can't read the response, but if we get here the request was sent
+        form.style.display = 'none';
+        status.style.display = 'block';
+        status.style.color = 'var(--sage)';
+        status.innerHTML = '<strong>Message sent!</strong> I\'ll get back to you within 24 hours. You can also reach me directly at <a href="mailto:socialbywilma@gmail.com" style="color:var(--terracotta);">socialbywilma@gmail.com</a>';
+      }).catch(function() {
+        btn.disabled = false;
+        btn.textContent = 'Send message';
+        status.style.display = 'block';
+        status.style.color = 'var(--terracotta)';
+        status.textContent = 'Something went wrong. Please try again or email me directly at socialbywilma@gmail.com';
+      });
+    }
   </script>
 </body>
 </html>
